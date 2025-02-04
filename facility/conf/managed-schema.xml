@@ -124,7 +124,7 @@
     <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
 
     <!-- DaaS fields BEGIN-->
-    <field name="fac_cd" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="fac_code" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="fac_name" type="string" indexed="true" stored="true" required="false" multiValued="false" />
     <field name="src_upd_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" />
     <field name="solr_upd_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" />
@@ -176,7 +176,7 @@
     <!-- Field to use to determine and enforce document uniqueness.
       Unless this field is marked with required="false", it will be a required field
     -->
-    <uniqueKey>fac_cd</uniqueKey>
+    <uniqueKey>fac_code</uniqueKey>
 
     <!-- copyField commands copy one field to another at the time a document
        is added to the index.  It's used either to index the same field differently,
