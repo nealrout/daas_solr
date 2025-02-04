@@ -126,8 +126,8 @@
     <!-- DaaS fields BEGIN-->
     <field name="asset_id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="sys_id" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="fac_cd" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="src_upd_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="fac_code" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+    <field name="src_upd_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" default="NOW" />
     <field name="solr_upd_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" />
 
     <!-- DaaS fields BEGIN-->
