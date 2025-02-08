@@ -38,7 +38,7 @@
     catchall "text" field, and use that for searching.
 -->
 
-<schema name="default-config" version="1.7">
+<schema name="asset-config" version="1.7">
     <!-- attribute "name" is the name of this schema and is only used for display purposes.
        version="x.y" is Solr's version number for the schema syntax and
        semantics.  It should not normally be changed by applications.
@@ -173,6 +173,9 @@
     <dynamicField name="*_dps" type="delimited_payloads_string" indexed="true"  stored="true"/>
 
     <dynamicField name="attr_*" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <!-- GLOBLAL IGNORE OF ALL DYNAMIC FIELDS.  YOU MUST REMOVE THIS IF YOU WANT DYNAMIC FIELDS TO WORK   -->
+    <dynamicField name="*" type="ignored" indexed="false" stored="false"/>
 
     <!-- Field to use to determine and enforce document uniqueness.
       Unless this field is marked with required="false", it will be a required field
