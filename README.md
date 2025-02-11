@@ -27,16 +27,27 @@ __Start SOLR:__
 solr start -c -z localhost:2181
 
 __Delete Collections:__  
-solr delete -c facility  
-solr delete -c asset
+solr delete -Duser=<UPDATEME> -Dpassword=<UPDATEME> -c facility  
+solr delete -c asset  
 
 __Create Collections:__  
+solr create -c facility -d D:\src\github\daas_solr\facility  
 solr create -c asset -d D:\src\github\daas_solr\asset  
-solr create -c facility -d D:\src\github\daas_solr\facility
 
 __Cloud:__  
-solr create -c asset -n asset -d D:\src\github\daas_solr\asset -shards 1 -replicationFactor 1
-solr zk upconfig -n asset -d D:\src\github\daas_solr\asset -z localhost:2181
+
+-- REMOVE  
+curl --user user:password "http://localhost:8983/solr/admin/collections?action=DELETE&name=facility"  
+curl --user user:password "http://localhost:8983/solr/admin/collections?action=DELETE&name=asset"  
+
+-- UPLOAD CONFIGS TO ZOOKEEPER  
+solr zk upconfig -n facility -d D:\src\github\daas_solr\facility -z localhost:2181  
+solr zk upconfig -n asset -d D:\src\github\daas_solr\asset -z localhost:2181  
+
+-- ADD COLLECTIONS  
+curl --user user:password "http://localhost:8983/solr/admin/collections?action=CREATE&name=facility&  numShards=1&replicationFactor=1&collection.configName=facility"  
+curl --user user:password "http://localhost:8983/solr/admin/collections?action=CREATE&name=asset&numShards=1&replicationFactor=1&collection.configName=asset"
+
 
 ## Features
 -
