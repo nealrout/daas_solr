@@ -124,15 +124,8 @@
     <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
 
     <!-- DaaS fields BEGIN-->
-    <field name="id" type="pint" indexed="true" stored="true" required="true" multiValued="false" />
-	  <field name="asset_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-    <field name="fac_code" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="sys_id" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="status_code" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
-    <field name="create_ts" type="pdate" indexed="true" stored="true" required="false" multiValued="false"/>
-    <field name="update_ts" type="pdate" indexed="true" stored="true" required="false" multiValued="false"/>
-    <field name="solr_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" default="NOW" />
-    <!-- DaaS fields END-->
+
+    <!-- DaaS fields BEGIN-->
     <!-- This can be enabled, in case the client does not know what fields may be searched. It isn't enabled by default
          because it's very expensive to index everything twice. -->
     <!-- <copyField source="*" dest="_text_"/> -->
@@ -182,7 +175,7 @@
     <!-- Field to use to determine and enforce document uniqueness.
       Unless this field is marked with required="false", it will be a required field
     -->
-    <uniqueKey>asset_nbr</uniqueKey>
+    <uniqueKey>id</uniqueKey>
 
     <!-- copyField commands copy one field to another at the time a document
        is added to the index.  It's used either to index the same field differently,
