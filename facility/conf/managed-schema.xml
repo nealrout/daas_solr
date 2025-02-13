@@ -38,7 +38,7 @@
     catchall "text" field, and use that for searching.
 -->
 
-<schema name="default-config" version="1.7">
+<schema name="facility-config" version="1.7">
     <!-- attribute "name" is the name of this schema and is only used for display purposes.
        version="x.y" is Solr's version number for the schema syntax and
        semantics.  It should not normally be changed by applications.
@@ -124,12 +124,15 @@
     <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
 
     <!-- DaaS fields BEGIN-->
+    <field name="id" type="pint" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="acct_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="fac_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="fac_code" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="fac_name" type="string" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="src_upd_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" />
-    <field name="solr_upd_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" />
-
-    <!-- DaaS fields BEGIN-->
+    <field name="create_ts" type="pdate" indexed="true" stored="true" required="false" multiValued="false"/>
+    <field name="update_ts" type="pdate" indexed="true" stored="true" required="false" multiValued="false"/>
+    <field name="solr_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" default="NOW" />
+    <!-- DaaS fields END-->
     <!-- This can be enabled, in case the client does not know what fields may be searched. It isn't enabled by default
          because it's very expensive to index everything twice. -->
     <!-- <copyField source="*" dest="_text_"/> -->
@@ -173,10 +176,13 @@
 
     <dynamicField name="attr_*" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
+    <!-- GLOBLAL IGNORE OF ALL DYNAMIC FIELDS.  YOU MUST REMOVE THIS IF YOU WANT DYNAMIC FIELDS TO WORK   -->
+    <dynamicField name="*" type="ignored" indexed="false" stored="false"/>
+
     <!-- Field to use to determine and enforce document uniqueness.
       Unless this field is marked with required="false", it will be a required field
     -->
-    <uniqueKey>fac_code</uniqueKey>
+    <uniqueKey>fac_nbr</uniqueKey>
 
     <!-- copyField commands copy one field to another at the time a document
        is added to the index.  It's used either to index the same field differently,
