@@ -125,6 +125,7 @@
 
     <!-- DaaS fields BEGIN-->
     <field name="id" type="pint" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="acct_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="fac_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="fac_code" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="fac_name" type="string" indexed="true" stored="true" required="false" multiValued="false" />
