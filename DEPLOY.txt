@@ -1,7 +1,7 @@
 
-curl --user admin:Solrsolradminrpwn! "http://localhost:8983/solr/admin/collections?action=DELETE&name=facility"
-curl --user admin:Solrsolradminrpwn! "http://localhost:8983/solr/admin/collections?action=DELETE&name=asset"
+curl --user admin:password "http://localhost:8983/solr/admin/collections?action=DELETE&name=facility"
+curl --user admin:password "http://localhost:8983/solr/admin/collections?action=DELETE&name=asset"
 solr zk upconfig -n facility -d D:\src\github\daas_solr\facility -z localhost:2181
 solr zk upconfig -n asset -d D:\src\github\daas_solr\asset -z localhost:2181
-curl --user admin:Solrsolradminrpwn! "http://localhost:8983/solr/admin/collections?action=CREATE&name=facility&numShards=1&replicationFactor=1&collection.configName=facility"
-curl --user admin:Solrsolradminrpwn! "http://localhost:8983/solr/admin/collections?action=CREATE&name=asset&numShards=1&replicationFactor=1&collection.configName=asset"
+curl --user admin:password "http://localhost:8983/solr/admin/collections?action=CREATE&name=facility&numShards=1&replicationFactor=1&collection.configName=facility"
+curl --user admin:password "http://localhost:8983/solr/admin/collections?action=CREATE&name=asset&numShards=1&replicationFactor=1&collection.configName=asset"
