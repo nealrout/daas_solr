@@ -124,7 +124,7 @@
     <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
 
     <!-- DaaS fields BEGIN-->
-    <field name="id" type="pint" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="id" type="pint" indexed="true" stored="true" required="false" multiValued="false" />
     <field name="asset_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="fac_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="fac_code" type="string" indexed="true" stored="true" required="false" multiValued="false" />
