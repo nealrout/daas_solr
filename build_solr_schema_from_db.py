@@ -1,8 +1,8 @@
 from lxml import etree
 import re
 
-sql_script_dir = rf"D:\src\github\daas_db\sql"
-sql_table_input = rf"{sql_script_dir}\table_service.sql"
+sql_script_dir = rf"D:\src\github\daas_db\sql\table"
+sql_table_input = rf"{sql_script_dir}\table_account.sql"
 solr_scheme_out_dir = rf"D:\src\github\daas_solr\stage"
 solr_schema_template = rf"{solr_scheme_out_dir}\TEMPLATE_managed-schema.xml"
 solr_schema_output = rf"{solr_scheme_out_dir}\managed-schema.xml"
@@ -94,7 +94,7 @@ if __name__ == "__main__":
 
             if deff.lower() == "bigint":
                 solr_field_type = "pint"
-            elif "varchar" in deff.lower():
+            elif "varchar" in deff.lower() or "text" in deff.lower() or "citext" in deff.lower():
                 solr_field_type = "string"
             elif "timestamp" in deff.lower():
                 solr_field_type = "pdate"
