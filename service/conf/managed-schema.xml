@@ -117,6 +117,7 @@
 <!-- DaaS fields BEGIN-->
   <field name="id" type="pint" indexed="true" stored="true" required="false" multiValued="false"/>
   <field name="service_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
+  <field name="fac_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="asset_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
   <field name="service_code" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
   <field name="service_name" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
