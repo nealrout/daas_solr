@@ -25,6 +25,9 @@ zKServer.cmd
 
 __Start SOLR:__  
 solr start -c -z localhost:2181
+-- upload security file if using cloud.
+solr zk cp file:security.json zk:/security.json -z localhost:2181
+
 
 __Delete Collections:__  
 solr delete -Duser=<UPDATEME> -Dpassword=<UPDATEME> -c facility  
