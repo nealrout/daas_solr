@@ -36,6 +36,9 @@ solr create -c asset -d D:\src\github\daas_solr\asset
 
 __Cloud:__  
 
+-- SECURITY
+solr zk cp file:D:/home/solr/solr-9.8.0/server/solr/security.json zk:/security.json -z localhost:2181
+
 -- REMOVE  
 curl --user user:password "http://localhost:8983/solr/admin/collections?action=DELETE&name=facility"  
 curl --user user:password "http://localhost:8983/solr/admin/collections?action=DELETE&name=asset"  
