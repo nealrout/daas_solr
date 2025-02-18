@@ -25,9 +25,6 @@ zKServer.cmd
 
 __Start SOLR:__  
 solr start -c -z localhost:2181
--- upload security file if using cloud.
-solr zk cp file:security.json zk:/security.json -z localhost:2181
-
 
 __Delete Collections:__  
 solr delete -Duser=<UPDATEME> -Dpassword=<UPDATEME> -c facility  
@@ -38,6 +35,9 @@ solr create -c facility -d D:\src\github\daas_solr\facility
 solr create -c asset -d D:\src\github\daas_solr\asset  
 
 __Cloud:__  
+
+-- SECURITY
+solr zk cp file:D:/home/solr/solr-9.8.0/server/solr/security.json zk:/security.json -z localhost:2181
 
 -- REMOVE  
 curl --user user:password "http://localhost:8983/solr/admin/collections?action=DELETE&name=facility"  
