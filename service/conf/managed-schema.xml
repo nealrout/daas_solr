@@ -116,12 +116,12 @@
   <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
 <!-- DaaS fields BEGIN-->
   <field name="id" type="pint" indexed="true" stored="true" required="false" multiValued="false"/>
-  <field name="svc_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
-  <field name="acct_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-  <field name="fac_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+  <field name="service_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
+  <field name="account_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+  <field name="facility_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="asset_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
-  <field name="svc_code" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
-  <field name="svc_name" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
+  <field name="service_code" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
+  <field name="service_name" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
   <field name="status_code" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
   <field name="create_ts" type="pdate" indexed="true" stored="true" required="false" multiValued="false"/>
   <field name="update_ts" type="pdate" indexed="true" stored="true" required="false" multiValued="false"/>
