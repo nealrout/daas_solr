@@ -36,7 +36,7 @@
     for all general text fields, use copyField to copy them to the
     catchall "text" field, and use that for searching.
 -->
-<schema name="service-config" version="1.7">
+<schema name="asset-config" version="1.7">
   <!-- attribute "name" is the name of this schema and is only used for display purposes.
        version="x.y" is Solr's version number for the schema syntax and
        semantics.  It should not normally be changed by applications.
@@ -114,19 +114,18 @@
   <!-- for nested documents (relationship tracking) -->
   <!-- <field name="_nest_path_" type="_nest_path_" /><fieldType name="_nest_path_" class="solr.NestPathField" /> -->
   <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
-<!-- DaaS fields BEGIN-->
-  <field name="id" type="pint" indexed="true" stored="true" required="false" multiValued="false"/>
-  <field name="service_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
-  <field name="account_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-  <field name="facility_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-  <field name="asset_nbr" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
-  <field name="service_code" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
-  <field name="service_name" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
-  <field name="status_code" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
-  <field name="create_ts" type="pdate" indexed="true" stored="true" required="false" multiValued="false"/>
-  <field name="update_ts" type="pdate" indexed="true" stored="true" required="false" multiValued="false"/>
-  <field name="solr_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" default="NOW" />
-  <!-- DaaS fields END-->
+  <field name="username" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
+  <field name="first_name" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
+  <field name="last_name" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
+  <field name="email" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+  <field name="is_staff" type="boolean" indexed="true" stored="true" required="false" multiValued="false"/>
+  <field name="is_superuser" type="boolean" indexed="true" stored="true" required="false" multiValued="false"/>
+  <field name="is_active" type="boolean" indexed="true" stored="true" required="false" multiValued="false"/>
+  <field name="last_login" type="pdate" indexed="true" stored="true" required="false" multiValued="false"/>
+  <field name="facility_nbr" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+  <field name="solr_dt" type="pdate" indexed="true" stored="true" required="false" multiValued="false" default="NOW"/>
+  <!-- DaaS fields BEGIN-->
+  <!-- DaaS fields BEGIN-->
   <!-- This can be enabled, in case the client does not know what fields may be searched. It isn't enabled by default
          because it's very expensive to index everything twice. -->
   <!-- <copyField source="*" dest="_text_"/> -->
@@ -167,7 +166,7 @@
   <!-- Field to use to determine and enforce document uniqueness.
       Unless this field is marked with required="false", it will be a required field
     -->
-  <uniqueKey>service_nbr</uniqueKey>
+  <uniqueKey>username</uniqueKey>
   <!-- copyField commands copy one field to another at the time a document
        is added to the index.  It's used either to index the same field differently,
        or to add multiple fields to the same field for easier/faster searching.
